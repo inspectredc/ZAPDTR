@@ -203,8 +203,6 @@ ZRom::ZRom(std::string romPath)
 		version.offset = MM_OFF_US_10;
 		break;
 	case MM_NTSC_10_UNCOMPRESSED:
-		version.version = "MM US 1.0";
-		version.listPath = "mm.txt";
 		version.offset = MM_OFF_US_10;
 		break;
 	case MM_NTSC_GC:
@@ -217,8 +215,6 @@ ZRom::ZRom(std::string romPath)
 	auto path = StringHelper::Sprintf("%s/%s", Globals::Instance->fileListPath.string().c_str(), version.listPath.c_str());
 	auto txt = DiskFile::ReadAllText(path);
 	std::vector<std::string> lines = StringHelper::Split(txt, "\n");
-
-    std::vector<uint8_t> decompressedData(1);
 
 	for (unsigned int i = 0; i < lines.size(); i++)
 	{

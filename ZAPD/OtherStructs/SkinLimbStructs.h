@@ -74,12 +74,13 @@ public:
 	ZResourceType GetResourceType() const override;
 
 	size_t GetRawDataSize() const override;
-	
-	uint16_t vtxCount;				// Number of vertices in this modif entry
-	uint16_t transformCount;		// Length of limbTransformations
-	uint16_t unk_4;					// 0 or 1, used as an index for limbTransformations
-	segptr_t skinVertices;			// SkinVertex*
-	segptr_t limbTransformations;	// SkinTransformation*
+
+public:
+	uint16_t vtxCount;             // Number of vertices in this modif entry
+	uint16_t transformCount;       // Length of limbTransformations
+	uint16_t unk_4;                // 0 or 1, used as an index for limbTransformations
+	segptr_t skinVertices;         // SkinVertex*
+	segptr_t limbTransformations;  // SkinTransformation*
 
 	std::vector<SkinVertex> skinVertices_arr;
 	std::vector<SkinTransformation> limbTransformations_arr;
