@@ -51,8 +51,6 @@ void ZText::ParseRawData()
 		MessageEntry msgEntry;
 		msgEntry.id = BitConverter::ToInt16BE(codeData, currentPtr + 0);
 
-		uint32_t msgPtr = msgEntry.msgOffset;
-
 		if (isPalLang)
 		{
 			msgEntry.segmentId = (codeData[langPtr + 0]);
@@ -64,6 +62,7 @@ void ZText::ParseRawData()
 			msgEntry.msgOffset = BitConverter::ToInt32BE(codeData, langPtr + 4) & 0x00FFFFFF;
 		}
 
+		uint32_t msgPtr = msgEntry.msgOffset;
 
 		if (isJpnLang)
 		{
