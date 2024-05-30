@@ -73,7 +73,7 @@ void ZText::ParseRawData()
 			unsigned int extra = 0;
 			bool stop = false;
 
-			while (!stop && extra > 0) {
+			while (!stop || extra > 0) {
 				msgEntry.msg += rawData[msgPtr + 1];
 				msgEntry.msg += rawData[msgPtr];
 				msgPtr+=2;
