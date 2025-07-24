@@ -263,9 +263,20 @@ ZRom::ZRom(std::string romPath)
 		// An ifdef is used here because at this point the XMLs haven't been parsed, and we don't
 		// know if this is MM or OOT
 #ifdef GAME_MM
-		if ((i >= 15 && i <= 20) || i == 22)
+		// PAL filelists differ For yar file locations, TODO: Find way to avoid special casing numbers
+		if (version.crc == MM_PAL_GC)
 		{
-			yarCompressed = true;
+			if ((i >= 17 && i <= 28) || i == 30)
+			{
+				yarCompressed = true;
+			}
+		}
+		else
+		{
+			if ((i >= 15 && i <= 20) || i == 22)
+			{
+				yarCompressed = true;
+			}
 		}
 #endif
 
